@@ -151,6 +151,38 @@ export class AngleMeasurement
     if (this._clickCount === 3) this.endCreation();
   };
 
+  createfrom = (arr: number[]) => {
+    this.enabled = true;
+    if (!this.world) {
+      console.log("No world selected for angle measurement!");
+      return;
+    }
+    if (arr.length >= 9) {
+      const point = new THREE.Vector3(arr[0], arr[1], arr[2]);
+      const point2 = new THREE.Vector3(arr[3], arr[4], arr[5]);
+      const point3 = new THREE.Vector3(arr[6], arr[7], arr[8]);
+      if (this._currentAngleElement) {
+        const angleElement = new AngleMeasureElement(this.world);
+        angleElement.lineMaterial = this.lineMaterial;
+        // angleElement.onPointRemoved.on(() => this._clickCount--);
+        this._currentAngleElement = angleElement;
+      }
+      if (this._currentAngleElement) {
+        this._currentAngleElement.lineMaterial = this.lineMaterial;
+        this._currentAngleElement.setPoint(point, 0);
+        this._currentAngleElement.setPoint(point2, 1);
+        this._currentAngleElement.setPoint(point3, 2);
+        this._currentAngleElement.computeAngle();
+        this.endCreation();
+      } else {
+        console.error("No current angle element available");
+      }
+    } else {
+      console.error("Insufficient data in the array");
+    }
+  };
+
+
   // TODO: Implement this
   /** {@link OBC.Createable.delete} */
   delete() {}
