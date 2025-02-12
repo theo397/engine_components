@@ -6,6 +6,7 @@
     "Juan Hoyos (https://github.com/HoyosJuan)",
     "Harry Collin (https://github.com/harrycollin)"
   ],
+  "name": "engine_components fork",
   "scripts": {
     "dev": "vite --host",
     "build-core": "yarn workspace @thatopen/components build",
