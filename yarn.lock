@@ -1651,9 +1651,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"engine_components fork@workspace:.":
+"enginecomponentsfork@workspace:.":
   version: 0.0.0-use.local
-  resolution: "engine_components fork@workspace:."
+  resolution: "enginecomponentsfork@workspace:."
   dependencies:
     "@rollup/plugin-terser": ^0.4.4
     "@types/node": latest
